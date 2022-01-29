@@ -38,8 +38,6 @@ export default {};
     border-radius: 10px;
     background: #2a3135;
     padding: 29px 25px 0 25px;
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 130%;
@@ -70,8 +68,6 @@ export default {};
     }
 
     > p {
-      font-family: Open Sans;
-      font-style: normal;
       text-align: right;
       color: #2a3135;
       line-height: 22px;

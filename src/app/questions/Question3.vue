@@ -1,6 +1,6 @@
 <template>
   <div class="question">
-    <div class="question__title">3. Выберите дополнительную фурнитуру</div>
+    <h3 class="question__title">3. Выберите дополнительную фурнитуру</h3>
 
     <div class="question__content">
       <div
@@ -9,7 +9,13 @@
         :key="el.title"
         @click="changeType(el)"
       >
-        <img :src="require(`../../assets/images/question3/${el.img}`)" alt="" />
+        <transition name="img-transition">
+          <img
+            :src="require(`../../assets/images/question3/${el.img}`)"
+            alt=""
+          />
+        </transition>
+
         <div>
           <input
             type="checkbox"
@@ -76,8 +82,6 @@ export default {
     }
   }
   > p {
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 12px;
     line-height: 14px;

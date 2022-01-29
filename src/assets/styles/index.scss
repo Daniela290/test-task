@@ -5,6 +5,14 @@ body {
   padding: 0;
   background: #f6f6f6;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  word-break: break-word !important;
+}
+* {
+  font-family: Open Sans;
+  font-style: normal;
+}
+input {
+  outline: none;
 }
 
 .question {
@@ -27,13 +35,12 @@ body {
 
 .el-popper {
   border-radius: 12px !important;
-  font-family: Open Sans;
-  font-style: normal;
   font-size: 12px;
   line-height: 15px !important;
   background: #e1e1e1 !important;
   color: #ffff;
   padding: 10px 15px !important;
+  word-break: break-word;
 }
 .el-popper.is-light .el-popper__arrow::before {
   background: #e1e1e1;
@@ -54,6 +61,7 @@ label::before {
   border: 2px solid #ffffff;
   box-shadow: 0px 2px 20px rgba(42, 49, 53, 0.15);
   cursor: pointer;
+  transition:all 100ms;
 }
 input[type="checkbox"]:checked + label::before,
 input[type="radio"]:checked + label::before {
@@ -61,7 +69,7 @@ input[type="radio"]:checked + label::before {
   justify-content: center;
   align-items: center;
   content: url("./assets/images/question1/check.svg");
-  background-size: 100%;
+  background-size: 100% !important;
   background: linear-gradient(90deg, #fec026 0%, #ffd52f 100%);
 }
 
@@ -73,8 +81,6 @@ input[type="radio"]:checked + label::before {
 .el-slider__runway {
   height: 10px;
   background: #d8d8d8;
-  //background: #f6f6f6;
-  //border-radius: 0px 30px 30px 0px;
   border-radius: 30px;
 }
 .el-slider__button {
@@ -91,6 +97,9 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+input {
+  -moz-appearance: textfield !important;
 }
 
 @media screen and (max-width: 790px) {
@@ -118,12 +127,6 @@ input::-webkit-inner-spin-button {
     }
   }
 
-  label::before {
-    width: 20px;
-    height: 20px;
-    border: 1px solid #ffffff;
-  }
-
   .el-slider__bar {
     height: 6px;
     background-color: #ffc930;
@@ -135,4 +138,18 @@ input::-webkit-inner-spin-button {
     width: 12px;
     height: 12px;
   }
+}
+
+.img-transition-enter-active,
+.img-transition-leave-active {
+  transition: all 100ms ease-in-out;
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.img-transition-enter-from,
+.img-transition-leave-from,
+.img-transition-enter-to,
+.img-transition-leave-to {
+  opacity: 0;
+  transform: scale(0, 0);
 }

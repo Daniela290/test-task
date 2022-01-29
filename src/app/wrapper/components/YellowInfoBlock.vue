@@ -59,8 +59,6 @@ export default {};
   box-sizing: border-box;
   z-index: 1;
   &__title {
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: 800;
     font-size: 18px;
     line-height: 130%;
@@ -69,8 +67,6 @@ export default {};
     color: #2a3135;
   }
   &__text {
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 130%;
@@ -95,8 +91,6 @@ export default {};
       }
       > div:nth-of-type(2) {
         width: 168px;
-        font-family: Open Sans;
-        font-style: normal;
         font-weight: normal;
         font-size: 16px;
         line-height: 16.8px;
@@ -161,9 +155,10 @@ export default {};
     width: calc(52% - 10px);
   }
 }
-@media screen and (max-width: 595px){
+@media screen and (max-width: 595px) {
   .info-block {
     width: 100%;
-    padding: 30px;}
+    padding: 30px;
+  }
 }
 </style>

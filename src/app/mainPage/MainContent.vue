@@ -22,7 +22,9 @@
         </div>
       </div>
 
-      <component :is="currentPage"></component>
+      <transition name="test">
+        <component :is="currentPage"></component>
+      </transition>
 
       <div class="steps-btn">
         <button
@@ -124,6 +126,16 @@ export default {
 </script>
 
 <style lang="scss">
+.test-enter-active,
+.test-leave-active {
+  transition: opacity 200ms;
+  transform: scale(1, 1);
+}
+.test-enter-from, .test-leave-to,.test-enter-to,.test-leave-from /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+  transform: scale(0, 0);
+}
+
 .main-content {
   width: 1005px;
   height: 766px;
@@ -135,12 +147,12 @@ export default {
   position: relative;
   &__title {
     > p {
-      font-family: Open Sans;
-      font-style: normal;
       text-align: center;
       text-transform: uppercase;
       color: #2a3135;
       margin: 0;
+      word-break: break-word !important;
+      word-wrap: normal;
     }
     > p:nth-of-type(1) {
       font-weight: 800;
@@ -163,8 +175,6 @@ export default {
   margin-top: 30px;
   position: relative;
   > p {
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 19px;
@@ -190,7 +200,6 @@ export default {
     box-sizing: border-box;
     bottom: 0;
 
-    // > .steps-count__progress {
     > div {
       background: transparent;
       border: 1px solid #ffffff;
@@ -212,7 +221,7 @@ export default {
   justify-content: center;
   gap: 30px;
   position: absolute;
-  bottom: 60px;
+  bottom: 50px;
   left: 0;
   > button {
     width: 165px;
@@ -222,8 +231,6 @@ export default {
     border: none;
     transition: 200ms ease-in-out;
 
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: 800;
     font-size: 14px;
     line-height: 19px;
@@ -253,9 +260,6 @@ export default {
     box-shadow: 0px 6px 20px rgba(42, 49, 53, 0.12);
     border-radius: 10px;
     padding: 50px 67px 150px 67px;
-  }
-  .steps-btn {
-    bottom: 50px;
   }
 }
 @media screen and (max-width: 670px) {
@@ -293,6 +297,20 @@ export default {
       height: 36px;
       font-weight: 600;
       font-size: 12px;
+    }
+  }
+}
+@media screen and (max-width: 390px) {
+  .main-content {
+    &__title {
+      > p:nth-of-type(1) {
+        font-size: 22px;
+        line-height: 37px;
+      }
+      > p:nth-of-type(2) {
+        font-size: 16px;
+        line-height: 28px;
+      }
     }
   }
 }

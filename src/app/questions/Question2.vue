@@ -1,6 +1,6 @@
 <template>
   <div class="question">
-    <div class="question__title">2. Какой тип остекления интересует?</div>
+    <h3 class="question__title">2. Какой тип остекления интересует?</h3>
 
     <div class="question__content">
       <div
@@ -81,8 +81,6 @@ export default {
   position: relative;
   cursor: pointer;
   > p {
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 12px;
     line-height: 16px;

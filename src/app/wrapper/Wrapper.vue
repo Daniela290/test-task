@@ -25,11 +25,17 @@ export default {
 }
 @media screen and (max-width: 1185px) {
   .wrapper {
-   // flex-direction: column;
     gap: 20px;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .wrapper {
+    padding: 10px 4px;
+    gap: 12px;
   }
 }
 </style>

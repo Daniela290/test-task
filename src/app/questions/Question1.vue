@@ -1,8 +1,8 @@
 <template>
   <div class="question">
-    <div class="question__title">
+    <h3 class="question__title">
       1. Укажите, пожалуйста, куда планируете ставить Окна?
-    </div>
+    </h3>
     <div class="question__content">
       <div
         class="type-room"
@@ -10,14 +10,20 @@
         :key="el.title"
         @click="changeType(el)"
       >
-        <img :src="require(`../../assets/images/question1/${el.img}`)" alt="" />
+        <transition name="img-transition">
+          <img
+            :src="require(`../../assets/images/question1/${el.img}`)"
+            alt=""
+          />
+        </transition>
         <div>
-          <input
+          <QuestionCheckBox v-model="el.isChecked" @click="changeType" />
+          <!-- <input
             type="checkbox"
             @onclick="changeType(el)"
             :checked="el.isChecked"
           />
-          <label></label>
+          <label></label> -->
           <p>{{ el.title }}</p>
         </div>
       </div>
@@ -26,6 +32,7 @@
 </template>
 
 <script>
+import QuestionCheckBox from "./components/QuestionCheckBox.vue";
 import { countSteps } from "../mainPage/countSteps.state";
 import { questionRequests } from "./questionRequests.state.js";
 export default {
@@ -70,6 +77,7 @@ export default {
       if (type) {
         type.isChecked = !type.isChecked;
       }
+      console.log(questionRequests.typeOfRooms);
       countSteps.isCanNewStep = questionRequests.typeOfRooms.some(
         (el) => el.isChecked === true
       );
@@ -86,6 +94,7 @@ export default {
       return questionRequests.typeOfRooms;
     },
   },
+  components: { QuestionCheckBox },
 };
 </script>
 
@@ -94,6 +103,7 @@ export default {
   &__content {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 10px;
   }
 }
 .type-room {
@@ -111,8 +121,6 @@ export default {
     justify-content: center;
     align-items: center;
     > p {
-      font-family: Open Sans;
-      font-style: normal;
       font-weight: bold;
       font-size: 12px;
       line-height: 14px;
