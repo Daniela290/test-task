@@ -9,20 +9,9 @@
         :key="el.title"
         @click="changeType(el)"
       >
-        <transition name="img-transition">
-          <img
-            :src="require(`../../assets/images/question3/${el.img}`)"
-            alt=""
-          />
-        </transition>
-
+        <img :src="require(`../../assets/images/question3/${el.img}`)" alt="" />
         <div>
-          <input
-            type="checkbox"
-            @onclick="changeType(el)"
-            :checked="el.isChecked"
-          />
-          <label></label>
+          <QuestionCheckBox v-model:val="el.isChecked" @click="changeType" />
         </div>
         <p>{{ el.title }}</p>
       </div>
@@ -31,6 +20,7 @@
 </template>
 
 <script>
+import QuestionCheckBox from "./components/QuestionCheckBox.vue";
 import { countSteps } from "../mainPage/countSteps.state";
 import { questionRequests } from "./questionRequests.state.js";
 export default {
@@ -55,6 +45,7 @@ export default {
   mounted() {
     this.changeType();
   },
+  components: { QuestionCheckBox },
 };
 </script>
 

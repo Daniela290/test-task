@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <transition name="test">
+      <transition name="componentTransition" mode="out-in" appear>
         <component :is="currentPage"></component>
       </transition>
 
@@ -126,12 +126,16 @@ export default {
 </script>
 
 <style lang="scss">
-.test-enter-active,
-.test-leave-active {
-  transition: opacity 200ms;
+.componentTransition-enter-active,
+.componentTransition-leave-active {
+  transition: all 100ms linear;
   transform: scale(1, 1);
+  opacity: 1;
 }
-.test-enter-from, .test-leave-to,.test-enter-to,.test-leave-from /* .fade-leave-active до версии 2.1.8 */ {
+.componentTransition-enter-from,
+.componentTransition-leave-to,
+.componentTransition-enter-to,
+.componentTransition-leave-from {
   opacity: 0;
   transform: scale(0, 0);
 }
@@ -153,6 +157,7 @@ export default {
       margin: 0;
       word-break: break-word !important;
       word-wrap: normal;
+      transition: all 700ms;
     }
     > p:nth-of-type(1) {
       font-weight: 800;

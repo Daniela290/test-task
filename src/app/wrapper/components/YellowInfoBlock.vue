@@ -1,6 +1,6 @@
 <template>
   <div class="info-block">
-    <div class="info-block__title">После расчёта Вы получите:</div>
+    <h3 class="info-block__title">После расчёта Вы получите:</h3>
 
     <div class="info-block__content">
       <div>

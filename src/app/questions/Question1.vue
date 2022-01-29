@@ -10,20 +10,9 @@
         :key="el.title"
         @click="changeType(el)"
       >
-        <transition name="img-transition">
-          <img
-            :src="require(`../../assets/images/question1/${el.img}`)"
-            alt=""
-          />
-        </transition>
+        <img :src="require(`../../assets/images/question1/${el.img}`)" alt="" />
         <div>
-          <QuestionCheckBox v-model="el.isChecked" @click="changeType" />
-          <!-- <input
-            type="checkbox"
-            @onclick="changeType(el)"
-            :checked="el.isChecked"
-          />
-          <label></label> -->
+          <QuestionCheckBox v-model:val="el.isChecked" />
           <p>{{ el.title }}</p>
         </div>
       </div>
@@ -77,7 +66,6 @@ export default {
       if (type) {
         type.isChecked = !type.isChecked;
       }
-      console.log(questionRequests.typeOfRooms);
       countSteps.isCanNewStep = questionRequests.typeOfRooms.some(
         (el) => el.isChecked === true
       );

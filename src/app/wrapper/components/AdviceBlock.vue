@@ -1,9 +1,9 @@
 <template>
   <div class="advice-block">
-    <div class="advice-block__message">
+    <h3 class="advice-block__message">
       Для более точного расчета стоимости выберите вариант, который вам больше
       подходит по цене
-    </div>
+    </h3>
 
     <div class="advice-block__author">
       <p>Инженер - замерщик</p>

@@ -1,14 +1,14 @@
 <template>
   <input
     type="checkbox"
-    :checked="value"
+    :checked="val"
   />
   <label></label>
 </template>
 
 <script>
 export default {
-  props: ["value"],
+  props: ["val"],
 };
 </script>
 
